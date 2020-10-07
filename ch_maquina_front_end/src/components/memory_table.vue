@@ -3,8 +3,16 @@
 	  <b-row >
 	    <b-col><h4>Memoria</h4></b-col>
 	  </b-row>
-	    <b-table sticky-header :items="memory_t" :fields="fields"></b-table>
-	  </div>
+    <b-row>
+          <b-col><h5>Pos</h5></b-col>
+            <b-col><h5>Item</h5></b-col>
+          </b-row>
+          <div v-for = "row_ in memory_t">
+            <b-row class = "row_num">
+              <b-col class = "col_num">{{row_['Pos']}}</b-col>
+              <b-col class = "col_num">{{row_['Instruccion']}}</b-col>
+            </b-row>
+          </div>
 	</b-container>
 </template>
 
@@ -15,12 +23,11 @@ import {bus} from '../main'
 export default {
     data() {
       return {
-        fields: ['Pos', 'Instruccion'],
         memory_t:[]
       }
     },
     created (){
-      bus.$on('printTable',(data) =>{
+      bus.$on('memoryTable',(data) =>{
         this.memory_t = data;
       })
     }

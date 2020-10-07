@@ -38,7 +38,8 @@ export default {
     		axios.post('http://127.0.0.1:8000/ch_Maquina', form, config)
             .then(response =>{
                 //console.log(response.data.content)
-                bus.$emit('printTable',response.data.content);
+                bus.$emit('memoryTable',response.data.content);
+                bus.$emit('variableTable',response.data.variables);
             }).catch(e =>{
                 console.log(e)
             })
