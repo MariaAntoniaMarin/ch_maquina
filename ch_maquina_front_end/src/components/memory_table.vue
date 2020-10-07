@@ -3,21 +3,26 @@
 	  <b-row >
 	    <b-col><h4>Memoria</h4></b-col>
 	  </b-row>
-	    <b-table sticky-header :items="items" :fields="fields"></b-table>
+	    <b-table sticky-header :items="memory_t" :fields="fields"></b-table>
 	  </div>
 	</b-container>
 </template>
 
 <script>
+
+import {bus} from '../main'
+
 export default {
     data() {
       return {
         fields: ['Pos', 'Instruccion'],
-        items: [
-          { Pos:'n', Instruccion: 'instruccion' },
-          { Pos:'nn',Instruccion:'as'}
-        ]
+        memory_t:[]
       }
+    },
+    created (){
+      bus.$on('printTable',(data) =>{
+        this.memory_t = data;
+      })
     }
   }
 </script>

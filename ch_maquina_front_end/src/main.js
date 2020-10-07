@@ -8,6 +8,8 @@ import axios from 'axios'
 Vue.use(BootstrapVue)
 Vue.use(axios)
 
+export const bus = new Vue();
+
 new Vue({
   el: '#app',
   render: h => h(App)

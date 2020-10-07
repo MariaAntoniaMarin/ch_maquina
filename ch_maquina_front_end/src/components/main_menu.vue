@@ -16,6 +16,7 @@
 
 <script>
 import axios from 'axios'
+import {bus} from '../main'
 
 export default {
     data() {
@@ -35,10 +36,16 @@ export default {
     			}
     		}
     		axios.post('http://127.0.0.1:8000/ch_Maquina', form, config)
-
+            .then(response =>{
+                //console.log(response.data.content)
+                bus.$emit('printTable',response.data.content);
+            }).catch(e =>{
+                console.log(e)
+            })
     	}
     }
   }
+
 </script>
 
 <style>

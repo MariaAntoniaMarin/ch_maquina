@@ -5,7 +5,7 @@ import os
 from falcon_cors import CORS
 import json
 
-cors = CORS(allow_origins_list=['*'])
+cors = CORS(allow_origins_list=['*'],allow_all_origins=True)
 class chMaquina:
 
 	_storage_path = './uploaded_files'
@@ -22,8 +22,7 @@ class chMaquina:
 			open(file_path, 'wb').write(input_file_.file.read())
 			resp.body = json.dumps(script_chmaquina.open_file_ch(file_path))
 			#print(file_path)
-
-			{"content": "linealinealinea"}
+			#{"content": "linealinealinea"}
 
 api = falcon.API(middleware = [MultipartMiddleware(), cors.middleware])
 api.add_route('/ch_Maquina',chMaquina())
