@@ -41,8 +41,8 @@
     			</b-row>
     			<div v-for = "label in labels">
 			    	<b-row class = "row_num_lab">
-					    <b-col class = "col_num_lab">{{label['name']}}</b-col>
 					    <b-col class = "col_num_lab">{{label['pos']}}</b-col>
+					    <b-col class = "col_num_lab">{{label['name']}}</b-col>
 				    </b-row>
 			    </div>
 			</b-col>

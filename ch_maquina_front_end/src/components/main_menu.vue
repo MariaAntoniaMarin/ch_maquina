@@ -8,8 +8,8 @@
 		    <b-col><b-button size="mg" variant="outline-success">Ejecutar</b-button></b-col>
 		    <b-col><b-button size="mg" variant="outline-warning">Pausar</b-button></b-col>
 		    <b-col><b-button size="mg" variant="outline-light">Paso a paso</b-button></b-col>
-		    <b-col><b-button size="mg" variant="outline-danger">Apagar</b-button></b-col>
-		    <b-col><b-button size="mg" variant="outline-info">Reiniciar</b-button></b-col>
+		    <b-col><b-button size="mg" variant="outline-danger" onclick = "window.close()">Apagar</b-button></b-col>
+		    <b-col><b-button size="mg" variant="outline-info" onclick = "window.location.reload()">Reiniciar</b-button></b-col>
 		</b-row>
 	</div>
 </template>
@@ -21,6 +21,7 @@ import {bus} from '../main'
 export default {
     data() {
       return {
+        myWindow: '',
         file1: null,
         file2: null
       }

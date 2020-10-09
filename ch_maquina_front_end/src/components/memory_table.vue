@@ -30,7 +30,7 @@ export default {
     },
     created (){
       bus.$on('memoryTable',(data) =>{
-        this.memory_t = data;
+        this.memory_t = data
       })
     }
   }

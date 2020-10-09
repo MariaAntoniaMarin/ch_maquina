@@ -47,7 +47,7 @@ def open_file_ch(path):
 				else: 
 					print('Existe un error con el tipo de carcater: ', line_[2])
 			elif line_[0].lower() == 'etiqueta':
-				label_dict = {'name':line_[1].lower(),'pos':line_[2].rjust(5,'0')}
+				label_dict = {'pos':line_[2].rjust(5,'0'),'name':line_[1].lower()}
 				label_list.append(label_dict)
 			elif line_[0].lower() not in ['etiqueta','//']:
 				inst_dict = {'Pos':str(j).rjust(5,'0'),'Instruccion':line.rstrip()}
@@ -58,5 +58,4 @@ def open_file_ch(path):
 			print('Existe un error de sintaxis con la palabra reservada: ', line_[0])
 			break
 	file_ch.close()
-	file_list.close()
 	return {'content': items_list,'variables':variables_list,'instructions':instruction_list,'labels':label_list}

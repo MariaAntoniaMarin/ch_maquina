@@ -10,7 +10,10 @@
 	  		<b-img src="https://img.icons8.com/cotton/2x/monitor.png" alt="Center image"></b-img>
 	  		<div class="monitor_text">Imprimiendo...</div>
 	  	</b-row>
-	  	<b-row><b-button squared>Imprimir</b-button></b-row>
+      <b-row>
+  	  	<b-col><b-button squared>Imprimir</b-button></b-col>
+        <b-col><b-button squared>M. Memoria</b-button></b-col>
+      </b-row>
 	  	<b-row>
 	  		<b-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMji3dP1Ox9xrrxroFYtfq1b-ugg3s8a7fLw&usqp=CAU" alt="Center image"></b-img>
 	  		<div class="printer_text">CH Maquina</div>
