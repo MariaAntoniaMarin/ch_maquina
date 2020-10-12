@@ -39,8 +39,13 @@ export default {
     		axios.post('http://127.0.0.1:8000/ch_Maquina', form, config)
             .then(response =>{
                 //console.log(response.data.content)
-                bus.$emit('memoryTable',response.data.content);
-                bus.$emit('infoTable',response.data);
+                //bus.$emit('memoryTable',response.data.content);
+                //bus.$emit('infoTable',response.data);\
+                this.$store.commit('addMemoryT',response.data.content);
+                this.$store.commit('addVariables',response.data.variables);
+                this.$store.commit('addInstructions',response.data.instructions);
+                this.$store.commit('addLabels',response.data.labels);
+                console.log(this.$store.getters.variablesTable);
             }).catch(e =>{
                 console.log(e)
             })
@@ -62,4 +67,3 @@ export default {
 	width: 30%;
 }
 </style>
-

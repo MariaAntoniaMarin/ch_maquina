@@ -3,9 +3,9 @@
 		    <b-col>
 		    	<b-row>
 		    		<b-col>Memoria</b-col>
-		    		<b-form-input class="box" v-model="number" placeholder="Enter number value" size="sm"></b-form-input>
+		    		<b-form-input class="box" placeholder="Enter number value" size="sm"></b-form-input>
 		    		<b-col>Kernel</b-col>
-		    		<b-form-input class="box" v-model="number" placeholder="Enter number value" size="sm"></b-form-input>
+		    		<b-form-input class="box" placeholder="Enter number value" size="sm"></b-form-input>
 		    	</b-row>
 		    </b-col>
 		    <b-col>

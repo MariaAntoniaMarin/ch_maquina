@@ -1,37 +1,37 @@
 <template>
   <div id="app">
-    <main_menu/>
+    <mainMenu/>
     <b-container>
       <b-row>
         <b-col>
           <b-row><selections/></b-row>
-          <b-row><info_table/></b-row>
+          <b-row><infoTable/></b-row>
         </b-col>
         <b-col><computer/></b-col>
-        <b-col><memory_table/></b-col>
+        <b-col><memoryTable/></b-col>
       </b-row>
     </b-container>
-    <pie_of_pagina/>
+    <pieOfPagina/>
   </div>
 </template>
 
 <script>
-import main_menu from './components/main_menu.vue'
-import memory_table from './components/memory_table.vue'
-import pie_of_pagina from './components/pie_of_pagina.vue'
+import mainMenu from './components/mainMenu.vue'
+import memoryTable from './components/memoryTable.vue'
+import pieOfPagina from './components/pieOfPagina.vue'
 import computer from './components/computer.vue'
 import selections from './components/selections.vue'
-import info_table from './components/info_table.vue'
+import infoTable from './components/infoTable.vue'
 
 export default {
   name: 'app',
   components: {
-    main_menu,
+    mainMenu,
     selections,
-    info_table,
-    memory_table,
+    infoTable,
+    memoryTable,
     computer,
-    pie_of_pagina
+    pieOfPagina
   }
 }
 </script>

@@ -10,8 +10,8 @@
           <div style="height: 620px; overflow-y: scroll;">
             <div v-for = "row_ in memory_t">
               <b-row class = "row_num">
-                <b-col class = "col_num_p">{{row_['Pos']}}</b-col>
-                <b-col class = "col_num_i">{{row_['Instruccion']}}</b-col>
+                <b-col class = "col_num_p">{{row_['pos']}}</b-col>
+                <b-col class = "col_num_i">{{row_['instruccion']}}</b-col>
               </b-row>
             </div>
           </div>
@@ -23,7 +23,13 @@
 import {bus} from '../main'
 
 export default {
-    data() {
+
+  computed:{
+    memory_t(){
+      return this.$store.state.memory_t;
+    }
+  }
+/*    data() {
       return {
         memory_t:[]
       }
@@ -32,7 +38,7 @@ export default {
       bus.$on('memoryTable',(data) =>{
         this.memory_t = data
       })
-    }
+    }*/
   }
 </script>
 

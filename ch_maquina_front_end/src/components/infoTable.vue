@@ -12,8 +12,8 @@
     			<div style="height: 500px; overflow-y: scroll;">
 					<div v-for = "inst in instructions">
 				    	<b-row class = "row_num_">
-						    <b-col class = "col_num_">{{inst['Pos']}}</b-col>
-						    <b-col class = "col_num_">{{inst['Instruccion']}}</b-col>
+						    <b-col class = "col_num_pos">{{inst.pos}}</b-col>
+						    <b-col class = "col_num_">{{inst.instruccion}}</b-col>
 					    </b-row>
 				    </div>
 				</div>
@@ -28,8 +28,8 @@
     			</b-row>
     			<div v-for = "var_ in variables">
 			    	<b-row class = "row_num_var">
-					    <b-col class = "col_num_var">{{var_['name']}}</b-col>
-					    <b-col class = "col_num_var">{{var_['value']}}</b-col>
+					    <b-col class = "col_num_var">{{var_.name}}</b-col>
+					    <b-col class = "col_num_var">{{var_.value}}</b-col>
 				    </b-row>
 			    </div>
 			    <b-row>
@@ -41,8 +41,8 @@
     			</b-row>
     			<div v-for = "label in labels">
 			    	<b-row class = "row_num_lab">
-					    <b-col class = "col_num_lab">{{label['pos']}}</b-col>
-					    <b-col class = "col_num_lab">{{label['name']}}</b-col>
+					    <b-col class = "col_num_lab">{{label.pos}}</b-col>
+					    <b-col class = "col_num_lab">{{label.name}}</b-col>
 				    </b-row>
 			    </div>
 			</b-col>
@@ -54,7 +54,18 @@
 import {bus} from '../main'
 
 export default {
-    data() {
+	computed:{
+		variables(){
+			return this.$store.getters.variablesTable;
+		},
+		labels(){
+			return this.$store.state.labels;
+		},
+		instructions(){
+			return this.$store.state.instructions;
+		}
+	}
+/*    data() {
       return {
       	variables:[],
       	labels:[],
@@ -67,7 +78,7 @@ export default {
         this.labels = data.labels;
         this.instructions = data.instructions;
       })
-    }
+    }*/
   }
 </script>
 
@@ -91,6 +102,10 @@ export default {
 }
 
 .col_num_{
+  padding: 0.01rem;
+  text-align: left;
+}
+.col_num_pos{
   padding: 0.01rem;
   text-align: center;
 }

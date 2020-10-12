@@ -50,9 +50,9 @@ def open_file_ch(path):
 				label_dict = {'pos':line_[2].rjust(5,'0'),'name':line_[1].lower()}
 				label_list.append(label_dict)
 			elif line_[0].lower() not in ['etiqueta','//']:
-				inst_dict = {'Pos':str(j).rjust(5,'0'),'Instruccion':line.rstrip()}
+				inst_dict = {'pos':str(j).rjust(5,'0'),'instruccion':line.rstrip()}
 				instruction_list.append(inst_dict)
-			line_dict = {'Pos':str(j).rjust(5,'0'),'Instruccion':line.rstrip()}
+			line_dict = {'pos':str(j).rjust(5,'0'),'instruccion':line.rstrip()}
 			items_list.append(line_dict)
 		else:
 			print('Existe un error de sintaxis con la palabra reservada: ', line_[0])
