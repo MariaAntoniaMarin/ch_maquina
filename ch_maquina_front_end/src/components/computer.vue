@@ -4,11 +4,11 @@
 	  	<b-row><h5>Acumulador</h5></b-row>
 	  	<b-row>
 	  		<b-img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.icons8.com%2Fpastel-glyph%2F2x%2Fbox--v2.png&f=1&nofb=1" width="130" height="130" alt="Center image" ></b-img>
-	  		<div class="acumulador_text">0</div>
+	  		<div class="acumulador_text">{{acumulador.value}}</div>
 	  	</b-row>
 	  	<b-row>
 	  		<b-img src="https://img.icons8.com/cotton/2x/monitor.png" alt="Center image"></b-img>
-	  		<div class="monitor_text">Imprimiendo...</div>
+	  		<div class="monitor_text">{{monitor.screen}}</div>
 	  	</b-row>
       <b-row>
   	  	<b-col><b-button squared>Imprimir</b-button></b-col>
@@ -16,12 +16,30 @@
       </b-row>
 	  	<b-row>
 	  		<b-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMji3dP1Ox9xrrxroFYtfq1b-ugg3s8a7fLw&usqp=CAU" alt="Center image"></b-img>
-	  		<div class="printer_text">CH Maquina</div>
+	  		<div class="printer_text">{{printer.paper}}</div>
 	  	</b-row>
 	  </b-col>
     </div>
 	</b-container>
 </template>
+
+<script>
+  
+  export default{
+    computed:{
+      acumulador(){
+        return this.$store.state.acumulador;
+      },
+      monitor(){
+        return this.$store.state.monitor;
+      },
+      printer(){
+        return this.$store.state.printer;
+      }
+    }
+  }
+
+</script>
 
 <style type="text/css">
 /* acumulador */

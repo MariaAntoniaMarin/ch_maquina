@@ -24,27 +24,63 @@ export const store = new Vuex.Store({
 			{'pos':'0001','instruccion':'instr1'},
 			{'pos':'0002','instruccion':'instr2'},
 			{'pos':'0003','instruccion':'instr3'}
-		]
+		],
+		acumulador: {'value':0},
+		monitor: {'screen':'CH Maquina'},
+		printer: {'paper':'Hola :)'}
 	},
 	mutations: {
-		addVariables(state, data){
-			state.variables = data
+		addData:(state, data) => {
+			state.variables = data.variables;
+			state.instructions = data.instructions;
+			state.labels = data.labels;
+			state.memory_t = data.content;
 		},
-		addInstructions(state, data){
-			state.instructions = data
+		changeVariableValue: (state, data) => {
+			const variable = state.variables.find(variable =>{
+				return variable.name == data.name;
+			});
+			variable.value = data.value;
 		},
-		addLabels(state, data){
-			state.labels = data
+		changeAcumuladorValue:(state,data) => {
+			state.acumulador.value = data;
 		},
-		addMemoryT(state, data){
-			state.memory_t = data
+		changeMonitorValue:(state,data) => {
+			state.monitor.screen = data;
+		},
+		changePrinterValue:(state,data) => {
+			state.printer.paper = data;
 		}
 	},
-	actions: {},
-	modules: {},
+	actions: {
+		changeVariable: ({commit},data) => {
+			setTimeout(()=>{
+				commit('changeVariableValue',data);
+			},50)
+		},
+		changeAcumulador: ({commit},data) => {
+			setTimeout(()=>{
+				commit('changeAcumuladorValue',data);
+			},50)
+		},
+		changeMonitor: ({commit},data) => {
+			setTimeout(()=>{
+				commit('changeMonitorValue',data);
+			},50)
+		},
+		changePrinter: ({commit},data) => {
+			setTimeout(()=>{
+				commit('changePrinterValue',data);
+			},50)
+		}
+	},
 	getters: {
 		variablesTable: state =>{
 			return state.variables
+		},
+		variableValue: (state) => (varName) => {
+			return state.variables.find(variable => variable.name == varName)
 		}
+
 	}
 });

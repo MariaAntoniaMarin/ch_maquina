@@ -5,7 +5,7 @@
 					<b-button size="mg" variant="outline-secondary"><b-form-file v-model="file2" plain></b-form-file></b-button>
 			    </div>
 		    <b-col><b-button size="mg" variant="outline-primary" v-on:click="uploadFile">Cargar</b-button></b-col>
-		    <b-col><b-button size="mg" variant="outline-success">Ejecutar</b-button></b-col>
+		    <b-col><b-button size="mg" variant="outline-success" v-on:click="executeFile">Ejecutar</b-button></b-col>
 		    <b-col><b-button size="mg" variant="outline-warning">Pausar</b-button></b-col>
 		    <b-col><b-button size="mg" variant="outline-light">Paso a paso</b-button></b-col>
 		    <b-col><b-button size="mg" variant="outline-danger" onclick = "window.close()">Apagar</b-button></b-col>
@@ -16,7 +16,7 @@
 
 <script>
 import axios from 'axios'
-import {bus} from '../main'
+import execute from '../JavaScript/execute.js'
 
 export default {
     data() {
@@ -40,16 +40,15 @@ export default {
             .then(response =>{
                 //console.log(response.data.content)
                 //bus.$emit('memoryTable',response.data.content);
-                //bus.$emit('infoTable',response.data);\
-                this.$store.commit('addMemoryT',response.data.content);
-                this.$store.commit('addVariables',response.data.variables);
-                this.$store.commit('addInstructions',response.data.instructions);
-                this.$store.commit('addLabels',response.data.labels);
-                console.log(this.$store.getters.variablesTable);
+                this.$store.commit('addData',response.data);
             }).catch(e =>{
                 console.log(e)
             })
-    	}
+    	},
+        executeFile() {
+            //console.log(this.$store.state.instructions);
+            execute(this.$store.state.instructions);
+        }
     }
   }
 
